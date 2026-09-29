@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f5f0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="./" aria-label="Meme Generator home">meme<span>shop</span></a>
+      <p class="top-note">A little room for a big thought.</p>
+      <button class="download-button" id="download" type="button">Download image <span aria-hidden="true">↓</span></button>
+    </header>
+
+    <main class="workspace">
+      <aside class="editor" aria-label="Meme controls">
+        <div class="editor-heading">
+          <p class="eyebrow">THE WORKBENCH / 01</p>
+          <h1>Make a meme.</h1>
+          <p class="intro">Pick a picture, add your words, send it into the world.</p>
+        </div>
+
+        <section class="control-section image-section" aria-labelledby="image-heading">
+          <div class="section-title">
+            <h2 id="image-heading">01 <span>Image</span></h2>
+            <button class="text-button" id="sample-image" type="button">Try a sample</button>
+          </div>
+          <label class="upload-button" for="image-upload">
+            <span class="upload-mark" aria-hidden="true">+</span>
+            <span><strong>Choose an image</strong><small>JPG, PNG or WebP</small></span>
+          </label>
+          <input class="visually-hidden" id="image-upload" type="file" accept="image/*">
+          <p class="file-name" id="file-name">No image selected</p>
+        </section>
+
+        <section class="control-section" aria-labelledby="words-heading">
+          <div class="section-title">
+            <h2 id="words-heading">02 <span>Your words</span></h2>
+          </div>
+          <label class="field-label" for="top-text">Top line</label>
+          <input class="text-input" id="top-text" type="text" maxlength="100" placeholder="WHEN THE CODE FINALLY WORKS">
+          <label class="field-label" for="bottom-text">Bottom line</label>
+          <input class="text-input" id="bottom-text" type="text" maxlength="100" placeholder="AND YOU DON'T KNOW WHY">
+        </section>
+
+        <section class="control-section styling-section" aria-labelledby="style-heading">
+          <div class="section-title">
+            <h2 id="style-heading">03 <span>Lettering</span></h2>
+          </div>
+          <label class="field-label" for="font-family">Typeface</label>
+          <select class="text-input select-input" id="font-family">
+            <option value="Impact">Impact</option>
+            <option value="Arial Black">Arial Black</option>
+            <option value="Trebuchet MS">Trebuchet</option>
+            <option value="Georgia">Georgia</option>
+          </select>
+          <div class="range-heading">
+            <label class="field-label" for="font-size">Letter size</label>
+            <output id="font-size-value" for="font-size">64</output>
+          </div>
+          <input class="range-input" id="font-size" type="range" min="32" max="104" value="64">
+          <div class="swatches-row">
+            <label class="color-control"><span>Fill</span><input id="fill-color" type="color" value="#ffffff" aria-label="Text fill color"></label>
+            <label class="color-control"><span>Outline</span><input id="outline-color" type="color" value="#111111" aria-label="Text outline color"></label>
+          </div>
+        </section>
+
+        <p class="status" id="status" aria-live="polite">Your canvas is ready.</p>
+      </aside>
+
+      <section class="preview" aria-label="Meme preview">
+        <div class="preview-heading">
+          <div><p class="eyebrow">LIVE PREVIEW</p><h2>Looking good?</h2></div>
+          <span class="canvas-size">1200 × 900</span>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="meme-canvas" width="1200" height="900" aria-label="Your meme preview"></canvas>
+          <div class="empty-hint" id="empty-hint"><span aria-hidden="true">↗</span><p>Drop in a photo<br>to get started</p></div>
+        </div>
+        <p class="preview-caption"><span>01</span> YOUR MEME, BEFORE IT GOES EVERYWHERE</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
